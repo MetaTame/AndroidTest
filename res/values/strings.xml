@@ -4,5 +4,7 @@
     <string name="app_name">Android Test</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_shot_meter">ShotMeter</string>
+    <string name="testbuttontext">Pickles!</string>
 
 </resources>
