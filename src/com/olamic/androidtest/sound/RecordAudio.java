@@ -16,6 +16,7 @@ public class RecordAudio extends AsyncTask <Void,double[],Void>{
 	private TextView peakNoiseTxt;
 	private boolean started;
 	private double peak = -1;
+	private AudioRecord audioRecord;
 
 	public RecordAudio(int blocksize, int frequencyHz, int audioFormat, int encoding) {
 		this.blocksize = blocksize;
@@ -30,7 +31,7 @@ public class RecordAudio extends AsyncTask <Void,double[],Void>{
 			started = true;
 			
 			int bufferSize = AudioRecord.getMinBufferSize(frequencyHz,audioFormat,encoding);
-			AudioRecord audioRecord = new AudioRecord( MediaRecorder.AudioSource.MIC, frequencyHz, audioFormat, encoding, bufferSize);
+			audioRecord = new AudioRecord( MediaRecorder.AudioSource.MIC, frequencyHz, audioFormat, encoding, bufferSize);
 
 			short[] buffer = new short[blocksize];
 			double[] meter = new double[blocksize];
@@ -49,12 +50,13 @@ public class RecordAudio extends AsyncTask <Void,double[],Void>{
 				
 				Thread.sleep(200);
 			}
-			audioRecord.stop();
 			
+			audioRecord.stop();			
 			audioRecord.release(); // release native resources, especially if you want to call again
+			Log.e("RecordAudio","Release called from background");
 
 		}catch (Throwable t) {
-			Log.e("AudioRecord","RecordingFail");
+			Log.e("RecordAudio","Recording fail");
 		}
 
 		return null;
@@ -82,6 +84,13 @@ public class RecordAudio extends AsyncTask <Void,double[],Void>{
 			}
 		}
 
+	}
+	
+	@Override
+	public void onCancelled() { 
+	    super.onCancelled();
+	    audioRecord.release();
+	    Log.e("RecordAudio","Release called from cancelled");
 	}
 
 	public void stopRecording() {
