@@ -20,24 +20,22 @@ public class ShotMeter extends Activity implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_shot_meter);
-		start = (Button)findViewById(R.id.button1);
+		start = (Button)findViewById(R.id.testSoundButton);
 
 		start.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-
-		if(record == null){
-			record = new RecordAudio(256, 600, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
-			record.setTextView((TextView)findViewById(R.id.textView1));
-			record.execute();
-			
+		// AsyncTask's can be started only once
+		if(record == null || !record.isStarted()){
+			record = new RecordAudio(256, 8000, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT); // 8000 sample rate required by emulator
+			record.setCurrentTextView((TextView)findViewById(R.id.currentNoiseText));
+			record.setPeakTextView((TextView)findViewById(R.id.peakNoiseText));
+			record.execute();			
 		} else if (record.isStarted()){
 			record.stopRecording();
 			record.cancel(true);
-		} else {
-			record.execute();
 		}
 	}
 }

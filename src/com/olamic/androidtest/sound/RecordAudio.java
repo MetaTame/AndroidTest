@@ -12,8 +12,10 @@ public class RecordAudio extends AsyncTask <Void,double[],Void>{
 	private int frequencyHz;
 	private int audioFormat;
 	private int encoding;
-	private TextView txt;
+	private TextView currentNoiseTxt;
+	private TextView peakNoiseTxt;
 	private boolean started;
+	private double peak = -1;
 
 	public RecordAudio(int blocksize, int frequencyHz, int audioFormat, int encoding) {
 		this.blocksize = blocksize;
@@ -41,7 +43,11 @@ public class RecordAudio extends AsyncTask <Void,double[],Void>{
 				for (int i = 0; i < blocksize && i < noOfReads; i++) { 
 					meter[i] = (double) buffer[i] / 32768.0; // signed 16 bit
 				}
+				
+				// don't publish progress so much
 				publishProgress(meter);
+				
+				Thread.sleep(200);
 			}
 			audioRecord.stop();
 
@@ -52,16 +58,26 @@ public class RecordAudio extends AsyncTask <Void,double[],Void>{
 		return null;
 	}
 	
-	public void setTextView(TextView txt){
-		this.txt = txt;
+	public void setCurrentTextView(TextView txt){
+		this.currentNoiseTxt = txt;
+	}
+	
+	public void setPeakTextView(TextView txt){
+		this.peakNoiseTxt = txt;
 	}
 
 	@Override
 	protected void onProgressUpdate(double[]... meter) {
 
-		for(int i = 0 ; i < meter[0].length ; i++){
-			double helper = meter[i][0]; // get first read of sample, maybe...
-			txt.setText(Double.toString(helper));
+		for(int i = 0 ; i < meter.length ; i++){
+			double volumeSnapshot = meter[i][0]; // get first read of sample, maybe...
+			currentNoiseTxt.setText(Double.toString(volumeSnapshot));
+			
+			if(volumeSnapshot > peak){
+				peak = volumeSnapshot;
+				
+				peakNoiseTxt.setText(Double.toString(peak));			
+			}
 		}
 
 	}
