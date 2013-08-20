@@ -50,6 +50,8 @@ public class RecordAudio extends AsyncTask <Void,double[],Void>{
 				Thread.sleep(200);
 			}
 			audioRecord.stop();
+			
+			audioRecord.release(); // release native resources, especially if you want to call again
 
 		}catch (Throwable t) {
 			Log.e("AudioRecord","RecordingFail");
