@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Application -->
+    <string name="app_name">ทดสอบแอนดรอยด์</string>
+    <string name="action_settings">ตั้งค่า</string>
+    <string name="main_menu">เมนูหลัก</string>
+    <string name="button_sound">เสียง</string>
+
+    <!-- Sound Meter -->
+    <string name="title_activity_shot_meter">ค่าเสียง</string>
+    <string name="test_sound_text">ตรวจวัดค่าเสียง</string>
+
+    <!-- Animation tutorial -->
+    <string name="button_anim">ภาพเคลื่อนไหว</string>
+    <string name="sun">พระอาทิตย์</string>
+    <string name="grass">หญ้า</string>
+    <string name="sky">ท้องฟ้า</string>
+    <string name="clock">นาฬิกา</string>
+    <string name="hour">เข็มนาฬิกา</string>
+    <string name="title_activity_animation_tutorial">วิธีทำภาพเคลื่อนไหว</string>
+
+</resources>

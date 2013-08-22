@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Application -->
+    <string name="app_name">Androidのテスト</string>
+    <string name="action_settings">設定</string>
+    <string name="main_menu">メインメニュー</string>
+    <string name="button_sound">雑音</string>
+
+    <!-- Sound Meter -->
+    <string name="title_activity_shot_meter">騒音計</string>
+    <string name="test_sound_text">ノイズレベルを測定する</string>
+
+    <!-- Animation tutorial -->
+    <string name="button_anim">アニメ</string>
+    <string name="sun">日</string>
+    <string name="grass">牧草</string>
+    <string name="sky">天</string>
+    <string name="clock">時計</string>
+    <string name="hour">時針</string>
+    <string name="title_activity_animation_tutorial">アニメの教え</string>
+
+</resources>
