@@ -7,7 +7,7 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="16" />
-    
+
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
@@ -27,6 +27,14 @@
         <activity
             android:name="com.olamic.androidtest.ShotMeter"
             android:label="@string/title_activity_shot_meter" >
+        </activity>
+        <activity
+            android:name="com.olamic.androidtest.AnimationTutorial"
+            android:label="@string/title_activity_animation_tutorial"
+            android:parentActivityName="com.olamic.androidtest.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.olamic.androidtest.MainActivity" />
         </activity>
     </application>
 

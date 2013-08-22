@@ -22,9 +22,15 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
-	/** Called when the user clicks the Send button */
-	public void sendMessage(View view) {
+	/** Called when the user clicks the Sound button */
+	public void soundButton(View view) {
 		Intent intent = new Intent(MainActivity.this, ShotMeter.class);
+	    startActivity(intent);
+	}
+	
+	/** Called when the user clicks the Anim button */
+	public void animButton(View view) {
+		Intent intent = new Intent(MainActivity.this, AnimationTutorial.class);
 	    startActivity(intent);
 	}
 
