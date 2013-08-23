@@ -33,5 +33,11 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(MainActivity.this, AnimationTutorial.class);
 	    startActivity(intent);
 	}
+	
+	/** Called when the user clicks the Cross button */
+	public void crossButton(View view) {
+		Intent intent = new Intent(MainActivity.this, CrossHair.class);
+	    startActivity(intent);
+	}
 
 }

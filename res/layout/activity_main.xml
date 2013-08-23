@@ -13,15 +13,21 @@
         android:text="@string/main_menu" />
     
     <Button
-	    android:layout_width="wrap_content"
+	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:text="@string/button_sound"
 	    android:onClick="soundButton" />
     
     <Button
-	    android:layout_width="wrap_content"
+	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:text="@string/button_anim"
 	    android:onClick="animButton" />
+    
+    <Button
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/button_cross"
+	    android:onClick="crossButton" />
 
 </LinearLayout>

@@ -19,5 +19,11 @@
     <string name="clock">Clock</string>
     <string name="hour">Hour Hand</string>
     <string name="title_activity_animation_tutorial">AnimationTutorial</string>
+    <string name="title_activity_cross_hair">Cross Hair</string>
+    
+    <!-- Cross Hair -->
+    <string name="button_cross">Cross</string>
+    <string name="target">Target</string>
+    <string name="recticle">Crosshairs</string>
 
 </resources>

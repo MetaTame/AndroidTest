@@ -36,6 +36,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.olamic.androidtest.MainActivity" />
         </activity>
+        <activity
+            android:name="com.olamic.androidtest.CrossHair"
+            android:label="@string/title_activity_cross_hair"
+            android:parentActivityName="com.olamic.androidtest.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.olamic.androidtest.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
